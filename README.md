@@ -159,7 +159,7 @@ Copy `.env.example` → `.env`. Everything has a default; keys are optional.
 
 ## ▍Roadmap
 
-- [ ] TikTok / YouTube Shorts feed sources
+- [ ] Search-tab source (X search / hashtags) alongside the For You feed
 - [ ] Auto-download the clip video for editing
 - [ ] Built-in caption A/B tracker
 - [ ] Multi-account posting queue

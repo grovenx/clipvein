@@ -60,7 +60,8 @@ whole segment. If you can't summarise the hook in one sentence, keep scrolling.
 
 - **Cut to the spike.** Trim dead air before and after. Land on the hook within
   the first second.
-- **Vertical for Shorts/TikTok/Reels, native for X.** Match the platform.
+- **Vertical (9:16) if you repost to TikTok/Reels/Shorts, native for X.**
+  ClipVein finds the moment on X; reposting elsewhere is your own step.
 - **Caption is the bait.** This is where Claude comes in — the two-line
   emotional-bait format (teaser line ending in one emoji, then a gut-punch
   quote/question). See [`prompts/claude/`](../prompts/claude/) and the

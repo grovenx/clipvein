@@ -72,8 +72,8 @@ Fork the prompt to match your lane:
   English by default).
 - **Length:** tighten to `Under 120 characters total.` for punchier posts.
 - **Options:** ask for `5 caption options` to A/B more.
-- **Platform:** for TikTok/Shorts add `Assume a vertical video with on-screen
-  text; keep it readable at a glance.`
+- **Repost target:** if you repost to a vertical platform (TikTok/Shorts) add
+  `Assume a vertical video with on-screen text; keep it readable at a glance.`
 
 ---
 

@@ -31,7 +31,7 @@ browser. Please keep them green and add tests for new logic.
 
 - New streamers in `clipvein/streamers.py` (with real handles + aliases).
 - Ranker tuning experiments (with a test that shows the effect).
-- New feed sources (TikTok / YouTube Shorts) behind the `Source` enum.
+- New data sources behind the `Source` enum (ClipVein reads the X feed today).
 - Prompt improvements in `prompts/` (keep the code + prompt files in sync).
 - Docs and examples.
 

@@ -19,7 +19,10 @@ hammer it, and respect any program rules you've signed up to. You are
 responsible for how you use it.
 
 **Which platforms?**
-Today: X (Twitter). TikTok and YouTube Shorts sources are on the roadmap.
+X (Twitter) only. ClipVein reads the X For You feed — that's the
+source it's built for. Where you *repost* the clip you cut (X, and vertical
+platforms like TikTok/Reels/Shorts) is up to you; ClipVein just finds the
+source moment on X.
 
 ---
 

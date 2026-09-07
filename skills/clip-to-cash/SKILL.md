@@ -22,7 +22,9 @@ It covers everything after: verify → cut → caption → post → get paid.
 
 - The post link (from ClipVein's browser/grok/mock run).
 - The streamer's name + which clipping program you're submitting to (if any).
-- Your target platform(s): X, TikTok, YouTube Shorts, Reels.
+- Where you'll repost the cut clip: X, and/or vertical platforms (TikTok,
+  Reels, Shorts). Note: ClipVein finds the source moment on X — reposting
+  elsewhere is your own step.
 
 ## The loop
 
@@ -35,7 +37,7 @@ one.
 
 ### 2. Cut to the spike
 - Trim dead air; land on the hook inside the first second.
-- Vertical (9:16) for TikTok/Shorts/Reels; native aspect for X.
+- Vertical (9:16) if reposting to TikTok/Shorts/Reels; native aspect for X.
 - Keep it tight — retention is the whole game.
 - Add on-screen text for the hook if the platform is muted-autoplay.
 

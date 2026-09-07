@@ -82,9 +82,10 @@ straight with them.
   edge; the deliverable is views.
 - **Sponsorship on your own accounts.** A clip account with real reach gets
   brand DMs. Reach is the asset.
-- **Platform creator funds & rev-share.** X, TikTok, YouTube and others pay
-  creators for views/engagement under their own programs. Original, compliant
-  edits qualify; re-uploads and farms get demonetised.
+- **Platform creator funds & rev-share.** Wherever you repost the clip (X, and
+  vertical platforms like TikTok/YouTube), those platforms pay creators for
+  views/engagement under their own programs. Original, compliant edits qualify;
+  re-uploads and farms get demonetised.
 - **Tips / memberships.** If people follow *you* for the curation, GitHub
   Sponsors, Boosty, memberships, and tips are direct support.
 
