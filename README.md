@@ -1,6 +1,6 @@
 <div align="center">
 
-# ▍clipvein
+# ▍Clipvein
 
 ### `clips · grok · claude = $`
 
