@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Secrets & local config
+.env
+*.local
+
+# Playwright / browser state
+.pw-profile/
+playwright-report/
+.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ClipVein runtime output
+out/
+*.log
+runs/

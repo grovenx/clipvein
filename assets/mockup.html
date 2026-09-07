@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  :root{--bg:#070b04;--panel:#0d1408;--elev:#121b0b;--stroke:#1e2a10;--green:#c5f82a;--dim:#9fb27a;--soft:#7d8f56;--text:#eef3e2;--tdim:#8b997a;--warn:#ffcc4d;}
+  *{box-sizing:border-box;margin:0}
+  body{background:#040602;font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);padding:22px}
+  .win{width:1180px;height:720px;background:var(--bg);border:1px solid var(--stroke);border-radius:16px;display:flex;gap:14px;padding:16px;margin:0 auto}
+  .mono{font-family:'JetBrains Mono','Consolas',monospace}
+  /* sidebar */
+  .side{width:240px;background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:8px}
+  .wm{color:var(--green);font-weight:800;font-size:26px;letter-spacing:-1px;font-family:'JetBrains Mono',monospace}
+  .tag{color:var(--dim);font-size:11px;font-family:'JetBrains Mono',monospace;margin-bottom:12px}
+  .sec{color:var(--soft);font-size:11px;letter-spacing:1px;font-family:'JetBrains Mono',monospace;margin:6px 0 2px}
+  .st{background:var(--elev);border:1px solid var(--stroke);border-radius:10px;padding:11px 14px;font-weight:600;font-size:13px}
+  .st.on{border-color:var(--green);color:var(--green);background:#1a260d}
+  .grow{flex:1}
+  .combo{background:var(--elev);border:1px solid var(--stroke);border-radius:8px;padding:7px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
+  .ghost{background:transparent;border:1px solid var(--stroke);border-radius:10px;padding:10px 14px;color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:12px;text-align:center}
+  .primary{background:var(--green);color:#0a0f06;border:none;border-radius:10px;padding:12px;font-weight:800;font-family:'JetBrains Mono',monospace;text-align:center}
+  /* console */
+  .con{flex:1;border:1px solid var(--stroke);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column}
+  .conhead{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--soft);margin-bottom:10px}
+  .term{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.85}
+  .c-code{color:var(--green)} .c-found{color:var(--dim)} .c-ok{color:var(--green)} .c-info{color:var(--tdim)} .c-warn{color:var(--warn)}
+  /* results */
+  .res{width:300px;background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:16px 14px}
+  .card{background:var(--elev);border:1px solid var(--stroke);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .card:hover{border-color:var(--green)}
+  .rank{color:var(--green);font-weight:800;font-size:18px;font-family:'JetBrains Mono',monospace}
+  .url{font-family:'JetBrains Mono',monospace;font-size:12px;margin:6px 0;word-break:break-all}
+  .meta{color:var(--tdim);font-size:11px}
+  .row{display:flex;justify-content:space-between;align-items:center}
+  .mini{color:var(--tdim);font-size:11px;font-family:'JetBrains Mono',monospace}
+  .btns{display:flex;gap:8px;margin-top:8px}
+  .mbtn{border:1px solid var(--stroke);border-radius:8px;padding:5px 10px;color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:11px}
+</style></head><body>
+<div class="win">
+  <div class="side">
+    <div class="wm">clipvein</div>
+    <div class="tag">clips · grok · claude = $</div>
+    <div class="sec">CHOOSE A STREAMER</div>
+    <div class="st">Clavicular</div>
+    <div class="st">iShowSpeed</div>
+    <div class="st on">Kai Cenat</div>
+    <div class="st">N3on</div>
+    <div class="st">Adin Ross</div>
+    <div class="grow"></div>
+    <div class="sec">SOURCE</div>
+    <div class="combo">browser ▾</div>
+    <div class="ghost">Connect browser</div>
+    <div class="primary">Find Kai Cenat clips ▸</div>
+  </div>
+  <div class="con">
+    <div class="conhead"><span>// how the post is found</span><span>searching…</span></div>
+    <div class="term">
+      <div class="c-info">  # target: Kai Cenat  (KaiCenat)</div>
+      <div class="c-code">› source = browser</div>
+      <div class="c-code">› query = "(from:KaiCenat OR @KaiCenat) filter:videos"</div>
+      <div class="c-code">› attach → http://127.0.0.1:9222</div>
+      <div class="c-ok">✓ browser attached ✓</div>
+      <div class="c-code">› page.goto("https://x.com/search?q=…&f=top")</div>
+      <div class="c-code">› await scrollFeed(step=1/8)</div>
+      <div class="c-found">✓ match @KaiCenat  views=1,240,000  vid=True</div>
+      <div class="c-found">✓ match @KaiCenat  views=absorbing…</div>
+      <div class="c-code">› await scrollFeed(step=2/8)</div>
+      <div class="c-found">✓ match @KaiCenat  views=540,000  vid=True</div>
+      <div class="c-found">✓ match @KaiCenat  views=95,000  vid=False</div>
+      <div class="c-code">› rank(24 posts, min_views=50,000)</div>
+      <div class="c-ok">✓ [1] https://x.com/KaiCenat/status/1794217885…  (score 16.9)</div>
+      <div class="c-ok">✓ [2] https://x.com/KaiCenat/status/1789883475…  (score 15.7)</div>
+      <div class="c-ok">✓ [3] https://x.com/KaiCenat/status/1797912861…  (score 14.2)</div>
+      <div class="c-info">  done — 3 link(s) ready</div>
+    </div>
+  </div>
+  <div class="res">
+    <div class="sec">TOP 3 LINKS</div>
+    <div class="card">
+      <div class="row"><span class="rank">#1</span><span class="mini">score 16.9</span></div>
+      <div class="url">x.com/KaiCenat/status/1794217885</div>
+      <div class="meta">1,240,000 views · 4.8% engagement · has video</div>
+      <div class="btns"><span class="mbtn">open ↗</span><span class="mbtn">copy</span></div>
+    </div>
+    <div class="card">
+      <div class="row"><span class="rank">#2</span><span class="mini">score 15.7</span></div>
+      <div class="url">x.com/KaiCenat/status/1789883475</div>
+      <div class="meta">540,000 views · 6.1% engagement · has video</div>
+      <div class="btns"><span class="mbtn">open ↗</span><span class="mbtn">copy</span></div>
+    </div>
+    <div class="card">
+      <div class="row"><span class="rank">#3</span><span class="mini">score 14.2</span></div>
+      <div class="url">x.com/KaiCenat/status/1797912861</div>
+      <div class="meta">260,000 views · 5.3% engagement · fresh</div>
+      <div class="btns"><span class="mbtn">open ↗</span><span class="mbtn">copy</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

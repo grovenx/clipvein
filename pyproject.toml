@@ -1,0 +1,47 @@
+[project]
+name = "clipvein"
+version = "0.1.0"
+description = "Mine the X feed for streamer clips worth posting — connect to your own browser, rank what's already going viral, and turn it into cash with a Grok + Claude pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "grovenx" }]
+keywords = ["streamers", "clips", "twitter", "x", "grok", "claude", "virality", "content"]
+
+dependencies = [
+    "PySide6>=6.6",
+    "playwright>=1.40",
+    "httpx>=0.27",
+    "pydantic>=2.5",
+    "python-dotenv>=1.0",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+clipvein = "clipvein.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/grovenx/clipvein"
+Repository = "https://github.com/grovenx/clipvein"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["clipvein*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
