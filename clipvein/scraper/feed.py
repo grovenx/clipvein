@@ -9,7 +9,7 @@ from __future__ import annotations
 import asyncio
 import urllib.parse
 from dataclasses import dataclass
-from typing import AsyncIterator, Callable, Optional
+from typing import AsyncIterator, Optional
 
 from ..models import Post
 from .parse import canonical_url, parse_count, parse_status_url

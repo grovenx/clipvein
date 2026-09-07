@@ -20,7 +20,6 @@ into X once and reuse forever, without touching your main browser.
 """
 from __future__ import annotations
 
-import asyncio
 from contextlib import asynccontextmanager
 from typing import AsyncIterator, Optional
 
