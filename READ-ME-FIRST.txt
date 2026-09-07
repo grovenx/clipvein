@@ -1,0 +1,19 @@
+CLIPVEIN — how to start
+=======================
+
+1. Double-click the file:  RUN_ClipVein.bat
+
+It installs Python (if missing), installs everything needed, and opens the
+app right away. The first run takes a couple of minutes.
+
+If after installing Python the window asks you to run it a second time —
+just close it and double-click RUN_ClipVein.bat again.
+
+Inside the app:
+  - pick a streamer on the left
+  - at the bottom switch "source" to mock (demo, no browser) to test
+  - press "Find clips"
+  - 3 links appear on the right
+
+To read the live Twitter/X feed — leave source = browser and press
+"Connect browser" (Chrome opens; sign into X there once).

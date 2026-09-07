@@ -1,56 +1,57 @@
-# ClipVein — как запустить
+# ClipVein — how to run
 
-Софт написан на **Python + PySide6**. Работает на Windows/macOS/Linux.
-Ничего платного не нужно: он подключается к твоему же Chrome и читает ленту,
-как это делаю я, когда ты даёшь мне доступ к браузеру.
+ClipVein is written in **Python + PySide6**. It runs on Windows / macOS / Linux.
+Nothing paid is required: it connects to your own Chrome and reads the feed you
+already see.
 
 ---
 
-## 1. Установка (один раз)
+## 1. Install (once)
 
-Нужен Python 3.10+. В папке проекта:
+You need Python 3.10+. In the project folder:
 
 ```bash
 pip install -r requirements.txt
 playwright install chromium
 ```
 
-> `playwright install chromium` нужен только как запасной браузерный движок.
-> В обычном режиме ClipVein цепляется к твоему настоящему Chrome — см. ниже.
+> `playwright install chromium` is only needed as a fallback browser engine.
+> In normal use ClipVein attaches to your real Chrome — see below.
 
 ---
 
-## 2. Быстрый старт — демо-режим (без браузера)
+## 2. Quick start — demo mode (no browser)
 
-Чтобы сразу увидеть, как всё работает, на примерных данных:
+To see how everything works right away, on sample data:
 
 ```bash
-# десктоп-приложение
+# desktop app
 CLIPVEIN_SOURCE=mock python -m clipvein          # macOS/Linux
 set CLIPVEIN_SOURCE=mock && python -m clipvein   # Windows (cmd)
 
-# или в терминале, без окна:
+# or in the terminal, no window:
 python -m clipvein.cli --streamer "Kai Cenat" --source mock
 ```
 
-Откроется окно: слева выбери стримера → кнопка **Find clips ▸** → по центру
-побежит консоль «как ищется пост» → справа появятся 3 ссылки.
+A window opens: pick a streamer on the left → **Find clips ▸** button → in the
+middle the console shows *how a post is found* → the right column fills with
+3 links.
 
 ---
 
-## 3. Боевой режим — чтение живой ленты через твой Chrome
+## 3. Live mode — read the real feed through your Chrome
 
-ClipVein подключается к Chrome по протоколу отладки (CDP) — так он использует
-**твою** авторизацию в X и ничего не логинит сам.
+ClipVein connects to Chrome over the DevTools Protocol (CDP), so it uses **your**
+own X session and never logs in itself.
 
-**Вариант А (через кнопку в приложении):**
-1. Запусти приложение: `python -m clipvein`
-2. Нажми **Connect browser** — ClipVein сам откроет отдельный Chrome с
-   включённой отладкой.
-3. В этом окне Chrome войди в свой X (один раз — профиль сохранится).
-4. Выбери стримера → **Find clips ▸**.
+**Option A (via the button in the app):**
+1. Launch the app: `python -m clipvein`
+2. Click **Connect browser** — ClipVein opens a separate Chrome with debugging
+   enabled.
+3. In that Chrome window, sign into your X (once — the profile is remembered).
+4. Pick a streamer → **Find clips ▸**.
 
-**Вариант Б (запустить Chrome вручную):**
+**Option B (start Chrome manually):**
 
 Windows:
 ```cmd
@@ -60,53 +61,54 @@ macOS:
 ```bash
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir=/tmp/clipvein-chrome https://x.com/home
 ```
-Затем запусти приложение — оно подцепится к этому Chrome автоматически.
+Then launch the app — it attaches to that Chrome automatically.
 
 ---
 
-## 4. Как это работает (коротко)
+## 4. How it works (short)
 
 ```
-выбор стримера  →  ClipVein открывает вкладку For You (рекомендации)  →  листает ленту
-   →  вытаскивает посты и их метрики (просмотры/лайки/репосты/видео)
-   →  ранкер считает score  →  справа 3 лучших ссылки
+pick streamer  →  ClipVein opens the For You tab (recommendations)  →  scrolls the feed
+   →  pulls posts and their metrics (views/likes/reposts/video)
+   →  the ranker computes a score  →  the best 3 links on the right
 ```
 
-Скоринг честный и прозрачный: reach (log просмотров) + качество
-(engagement rate) + бонус за видео (клипабельно) + свежесть. У каждой ссылки
-видно, *почему* она попала в топ.
+The scoring is honest and transparent: reach (log of views) + quality
+(engagement rate) + a video bonus (clippable) + freshness. Each link shows
+*why* it made the top.
 
 ---
 
-## 5. Опционально: Grok и Claude
+## 5. Optional: Grok and Claude
 
-- **Grok (xAI)** — вместо ручного листания можно попросить Grok найти
-  залетевшие посты. Вставь `XAI_API_KEY` в `.env`, поставь `CLIPVEIN_SOURCE=grok`.
-- **Claude (Anthropic)** — по найденному посту пишет готовый caption в
-  вирусном формате. Вставь `ANTHROPIC_API_KEY` в `.env`.
+- **Grok (xAI)** — instead of scrolling by hand, you can ask Grok to find the
+  posts that are popping off. Put `XAI_API_KEY` in `.env`, set
+  `CLIPVEIN_SOURCE=grok`.
+- **Claude (Anthropic)** — for a found post, it writes a ready caption in the
+  viral format. Put `ANTHROPIC_API_KEY` in `.env`.
 
-Скопируй `.env.example` в `.env` и заполни, что нужно. Без ключей всё
-работает в режиме `browser`/`mock`.
+Copy `.env.example` to `.env` and fill in what you need. With no keys,
+everything works in `browser`/`mock` mode.
 
 ---
 
-## 6. Настройки (.env)
+## 6. Settings (.env)
 
-| Переменная | Что делает | По умолчанию |
+| Variable | What it does | Default |
 |---|---|---|
 | `CLIPVEIN_SOURCE` | `browser` / `grok` / `mock` | `browser` |
-| `CHROME_CDP_URL` | адрес отладки Chrome | `http://127.0.0.1:9222` |
-| `CLIPVEIN_MIN_VIEWS` | порог просмотров | `50000` |
-| `CLIPVEIN_TOP_N` | сколько ссылок показывать | `3` |
-| `XAI_API_KEY` | ключ Grok (опц.) | — |
-| `ANTHROPIC_API_KEY` | ключ Claude (опц.) | — |
+| `CHROME_CDP_URL` | Chrome debug endpoint | `http://127.0.0.1:9222` |
+| `CLIPVEIN_MIN_VIEWS` | view floor | `50000` |
+| `CLIPVEIN_TOP_N` | how many links to show | `3` |
+| `XAI_API_KEY` | Grok key (optional) | — |
+| `ANTHROPIC_API_KEY` | Claude key (optional) | — |
 
 ---
 
-## 7. Собрать в .exe (Windows, опционально)
+## 7. Build a .exe (Windows, optional)
 
 ```bash
 pip install pyinstaller
 pyinstaller --noconfirm --windowed --name ClipVein --collect-all PySide6 -m clipvein
 ```
-Готовый `ClipVein.exe` появится в `dist/ClipVein/`.
+The finished `ClipVein.exe` appears in `dist/ClipVein/`.
