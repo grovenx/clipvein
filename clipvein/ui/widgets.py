@@ -1,9 +1,8 @@
 """Reusable widgets: the streamer button and the result link card."""
 from __future__ import annotations
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, QUrl, Signal
 from PySide6.QtGui import QDesktopServices
-from PySide6.QtCore import QUrl
 from PySide6.QtWidgets import (
     QFrame,
     QHBoxLayout,

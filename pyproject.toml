@@ -42,6 +42,15 @@ include = ["clipvein*"]
 line-length = 100
 target-version = "py310"
 
+[tool.ruff.lint]
+# A pragmatic rule set: catch real problems (pyflakes errors, undefined names,
+# unused imports) and keep imports tidy — without failing CI on stylistic
+# opinions (blind-except, executable bits, Optional-vs-`X | None`, etc.).
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E501",  # line length is enforced by the formatter, not the linter
+]
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
